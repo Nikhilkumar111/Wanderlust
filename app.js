@@ -33,6 +33,8 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 // *****************************************************
 
+const PORT = 8080;
+
 
 
 main()
@@ -119,6 +121,8 @@ res.status(statusCode).render("error.ejs",{message});
 })
 
 
-app.listen(8080,()=>{
-    console.log("server is started at 8080");
-}) 
+
+
+app.listen(PORT, () => {
+    console.log(`Server is started at ${PORT} → http://localhost:${PORT}`);
+});

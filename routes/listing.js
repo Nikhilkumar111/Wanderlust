@@ -159,6 +159,7 @@ const upload = multer({storage })
 router.route("/").get( wrapAsync(listingController.index))
 // .post( isLoggedIn, validateListing, wrapAsync(listingController.createListing));
 .post(upload.single('listing[image]'),(req,res)=>{
+    console.log("ab to send krna h cloudiary ko");
     res.send(req.file);
 })
 
