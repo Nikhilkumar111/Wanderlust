@@ -145,7 +145,7 @@ const router = express.Router();
 const wrapAsync = require("../init/utils/wrapAsync.js");
 const ExpressError = require("../init/utils/ExpressError.js");
 const { listingSchema } = require("../schema.js");
-const Listing = require("../models/Listing");
+const Listing = require("../models/listing");
 const { isLoggedIn,isOwner,validateListing } = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
 

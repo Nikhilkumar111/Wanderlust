@@ -10,9 +10,9 @@ const mongoose = require("mongoose");
 
 const path = require("path");
 const methodOverride = require("method-override");
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-const ejsMate = require("ejs-mate");
+const MONGO_URL = "mongodb+srv://algobitcoder_db_user:zJS9qKPYheJpDZFR@cluster0.9nh0tut.mongodb.net/wanderlust?retryWrites=true&w=majority&appName=Cluster0"
 
+const ejsMate = require("ejs-mate");
 const ExpressError = require("./init/utils/ExpressError.js");
 // const session = require("express-session");
 
@@ -66,10 +66,11 @@ const sessionOptions = {
     } ,
 };
 
-app.get("/",(req,res)=>{
-    res.send("Hii , I am nikhil");   
-   })
-   
+// Redirect "/" to "/listings" so home page shows listings
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 app.use(session(sessionOptions));
 app.use(flash());
 //USER AUTHENTICATION AND AUTHERISATION
@@ -119,7 +120,6 @@ let {statusCode=500 , message= "Something went wrong!"} = err;
 res.status(statusCode).render("error.ejs",{message});
 // res.status(statusCode).send(message);
 })
-
 
 
 
